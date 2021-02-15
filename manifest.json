@@ -1,0 +1,41 @@
+{
+	"author": "Benoit Trzpit",
+	"background": {
+		"persistent": false,
+		"scripts": ["background.js"]
+	},
+	"content_scripts": [
+		{
+			"css": [],
+			"js": ["content-script.js"],
+			"matches": [
+				"https://www.netflix.com/*",
+				"https://www.netflix.com/*/*",
+				"https://www.netflix.com/*/*/*"
+			],
+			"run_at": "document_idle"
+		}
+	],
+	"description": "Adds a private list to Netflix which is hidden from other users on the same account.",
+	"icons": {
+		"128": "images/icon128.png",
+		"16": "images/icon16.png",
+		"32": "images/icon32.png",
+		"48": "images/icon48.png"
+	},
+	"manifest_version": 2,
+	"name": "My Netflix Private List",
+	"options_page": "",
+	"page_action": {
+		"default_icon": {
+			"128": "images/icon128.png",
+			"16": "images/icon16.png",
+			"32": "images/icon32.png",
+			"48": "images/icon48.png"
+		},
+		"default_popup": "popup.html"
+	},
+	"permissions": ["storage", "declarativeContent", "contextMenus", "tabs"],
+	"update_url": "https://clients2.google.com/service/update2/crx",
+	"version": "0.0.1"
+}
