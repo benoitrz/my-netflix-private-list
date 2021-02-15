@@ -35,6 +35,12 @@
 		)
 	}
 
+	const listenMoveEvent = () => {
+		document.addEventListener('mousemove', (event) => {
+			mouseCoord = { x: event.x, y: event.y }
+		})
+	}
+
 	const listenWindowResizeEvent = () => (window.onresize = windowResize)
 
 	const windowResize = () => {
@@ -308,10 +314,7 @@
 		getStoredList().then(() => {
 			isLoading = false
 			render()
-			const handleMousemove = (event) => {
-				mouseCoord = { x: event.x, y: event.y }
-			}
-			document.addEventListener('mousemove', handleMousemove)
+			listenMoveEvent()
 		})
 	})
 })()
